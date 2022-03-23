@@ -141,8 +141,49 @@ In this example, I use debug to pull out the information:
       msg: "and jndi name {{ result1[1].jdbc_data_source[1].name }}"
 ````
 
+### Example 1 ansible output
+This is what ansible will give you.
 
-### Example 2
+````
+$ ansible-playbook one.yml
+
+PLAY [ReadJsonfile] ***********************************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************
+ok: [localhost]
+
+TASK [Display the JSON file content] ******************************************************************************
+changed: [localhost]
+
+TASK [debug] ******************************************************************************************************
+ok: [localhost]
+
+TASK [debug] ******************************************************************************************************
+ok: [localhost] => {
+    "msg": "jdbc_data_source name is cwds has username CAN_USER and jndi name cwdsjndi"
+}
+
+TASK [debug] ******************************************************************************************************
+ok: [localhost] => {
+    "msg": "jdbc_data_source name is cwds"
+}
+
+TASK [debug] ******************************************************************************************************
+ok: [localhost] => {
+    "msg": "has username CAN_USER"
+}
+
+TASK [debug] ******************************************************************************************************
+ok: [localhost] => {
+    "msg": "and jndi name cwdsjndi"
+}
+
+PLAY RECAP ********************************************************************************************************
+localhost                  : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+
+````
+
+## Example 2
 In this example, I use ```set_fact:``` to pull register the variables and then use debug to display the variables. This example is the better one to use.
 
 ````
@@ -175,4 +216,42 @@ In this example, I use ```set_fact:``` to pull register the variables and then u
   - name: debug
     debug:
       msg: jdbc_data_source name is {{ sourcename }} has username {{ username }} and jndi name {{ jndiname }}
+````
+
+### Example 2 output
+This is what the second playbook will give you.
+
+````
+$ ansible-playbook two.yml
+
+PLAY [ReadJsonfile] ***********************************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************
+ok: [localhost]
+
+TASK [Set our facts from the JSON file] ***************************************************************************
+ok: [localhost]
+
+TASK [debug] ******************************************************************************************************
+ok: [localhost] => {
+    "sourcename": "cwds"
+}
+
+TASK [debug] ******************************************************************************************************
+ok: [localhost] => {
+    "username": "CAN_USER"
+}
+
+TASK [debug] ******************************************************************************************************
+ok: [localhost] => {
+    "jndiname": "cwdsjndi"
+}
+
+TASK [debug] ******************************************************************************************************
+ok: [localhost] => {
+    "msg": "jdbc_data_source name is cwds has username CAN_USER and jndi name cwdsjndi"
+}
+
+PLAY RECAP ********************************************************************************************************
+localhost                  : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 ````
