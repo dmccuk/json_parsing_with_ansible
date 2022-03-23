@@ -1,3 +1,13 @@
+---
+
+- [JSON parsing examples](#json-parsing-examples)
+    + [JSON example](#json-example)
+  * [Example 1](#example-1)
+    + [Example 1 ansible output](#example-1-ansible-output)
+  * [Example 2](#example-2)
+    + [Example 2 output](#example-2-output)
+---
+
 # JSON parsing examples
 This repo will grow overtime and give examples of parsing JSON to be able to get to the bit of information you want. BOth examples five you the same output, but the second one is cleaner and easier to manage going forward.
 
