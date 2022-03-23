@@ -1,5 +1,5 @@
 # JSON parsing examples
-This repo will grow overtime and give examples of parsing JSON to be able to get to the bit of information you want.
+This repo will grow overtime and give examples of parsing JSON to be able to get to the bit of information you want. BOth examples five you the same output, but the second one is cleaner and easier to manage going forward.
 
 ### JSON example
 The json file I'll be using in this example.
