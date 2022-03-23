@@ -110,7 +110,7 @@ The json file I'll be using in this example.
 ````
 
 ## Example 1
-In this example, I use set the how document to be a fact, then use debug to pull out the information I want:
+In this example, I use shell to read the file and register the result. Then I take the "register" and make the whole file into a variable using ```set_fact:```. Then I use debug to pull out the information I want:
 
 ````
 ---
