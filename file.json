@@ -1,0 +1,95 @@
+[{
+		"?xml": {
+			"attributes": {
+				"encoding": "UTF_8",
+				"version": "1.0"
+			}
+		}
+	},
+	{
+		"jdbc_data_source": [{
+				"attributes": {
+					"xmlns": "http://xmlns.oracle.com/weblogic/jdbc_data_source"
+				}
+			},
+			{
+				"name": "cwdsjndi"
+			},
+			{
+				"jdbc_driver_params": [{
+						"url": "jdbc:oracle:thin:@//myhost.myshop.com:1521/OLTT206"
+					},
+					{
+						"driver_name": "oracle.jdbc.OracleDriver"
+					},
+					{
+						"properties": {
+							"property": [{
+									"name": "user7"
+								},
+								{
+									"value": "CAN_USER"
+								}
+							]
+						}
+					},
+					{
+						"password_encrypted": "{AES}BcqmURyYoCkLvC5MmREXsfpRMO93KPIubqUAbb95+nE="
+					}
+				]
+			},
+			{
+				"jdbc_data_source_params": {
+					"jndi_name": "cwds"
+				}
+			}
+		]
+	},
+	{
+		"?xml": {
+			"attributes": {
+				"encoding": "UTF_8",
+				"version": "1.0"
+			}
+		}
+	},
+	{
+		"jdbc_data_source": [{
+				"attributes": {
+					"xmlns": "http://xmlns.oracle.com/weblogic/jdbc_data_source"
+				}
+			},
+			{
+				"name": "dsvelcw"
+			},
+			{
+				"jdbc_driver_params": [{
+						"url": "jdbc:oracle:thin:@myhost.myshop.com:1521:DB01"
+					},
+					{
+						"driver_name": "oracle.jdbc.OracleDriver"
+					},
+					{
+						"properties": {
+							"property": [{
+									"name": "user"
+								},
+								{
+									"value": "WEB_USER"
+								}
+							]
+						}
+					},
+					{
+						"password_encrypted": "{AES}WYImLDLo0j7S80cGMUDsE5M5QTnpffTPGyIzDuGG6WU="
+					}
+				]
+			},
+			{
+				"jdbc_data_source_params": {
+					"jndi_name": "dsvelcw"
+				}
+			}
+		]
+	}
+]

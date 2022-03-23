@@ -1,0 +1,26 @@
+---
+- name: ReadJsonfile
+  hosts: localhost
+  tasks:
+  - name: Display the JSON file content
+    shell: "cat file.json"
+    register: result
+
+  - name: debug
+    set_fact:
+      result1: "{{ result.stdout | from_json }}"
+
+  - name: debug
+    debug:
+      msg: "jdbc_data_source name is {{ result1[1].jdbc_data_source[3].jdbc_data_source_params.jndi_name }} has username {{ result1[1].jdbc_data_source[2].jdbc_driver_params[2].properties.property[1].value }} and jndi name {{ result1[1].jdbc_data_source[1].name }}"
+
+  - name: debug
+    debug:
+      msg: "jdbc_data_source name is {{ result1[1].jdbc_data_source[3].jdbc_data_source_params.jndi_name }}"
+
+  - name: debug
+    debug:
+      msg: "has username {{ result1[1].jdbc_data_source[2].jdbc_driver_params[2].properties.property[1].value }}"   
+  - name: debug
+    debug:
+      msg: "and jndi name {{ result1[1].jdbc_data_source[1].name }}"

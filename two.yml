@@ -1,0 +1,29 @@
+---
+- name: ReadJsonfile
+  hosts: localhost
+  vars:
+    input: "{{ lookup('file','file.json') | from_json }}"
+    urls: "[?contains(xmlns, 'http')]"
+  tasks:
+
+  - name: Set our facts from the JSON file
+    set_fact:
+      sourcename: "{{ input[1].jdbc_data_source[3].jdbc_data_source_params.jndi_name }}"
+      username: "{{ input[1].jdbc_data_source[2].jdbc_driver_params[2].properties.property[1].value }}"
+      jndiname: "{{ input[1].jdbc_data_source[1].name }}"
+
+  - name: debug
+    debug:
+      var: sourcename
+
+  - name: debug
+    debug:
+      var: username
+
+  - name: debug
+    debug:
+      var: jndiname
+
+  - name: debug
+    debug:
+      msg: jdbc_data_source name is {{ sourcename }} has username {{ username }} and jndi name {{ jndiname }}
