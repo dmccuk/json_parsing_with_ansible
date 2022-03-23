@@ -110,7 +110,7 @@ The json file I'll be using in this example.
 ````
 
 ## Example 1
-In this example, I use debug to pull out the information:
+In this example, I use set the how document to be a fact, then use debug to pull out the information I want:
 
 ````
 ---
@@ -184,7 +184,7 @@ localhost                  : ok=7    changed=1    unreachable=0    failed=0    s
 ````
 
 ## Example 2
-In this example, I use ```set_fact:``` to pull register the variables and then use debug to display the variables. This example is the better one to use.
+In this example, I use ```set_fact:``` to register each item as a variable and then use debug to display the variables. This example is the better one to use. I also use a lookup instead of a shell command to bring the json into ansible. Now it's simply a matter of using the variables where you need them.
 
 ````
 ---
